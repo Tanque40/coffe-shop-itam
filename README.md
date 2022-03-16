@@ -1,5 +1,8 @@
-# README
+# Coffe Shop ITAM
 
+Application for the Coffe Shop of ITAM. Actually develop for a project class.
+
+## Just a note for the future
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
