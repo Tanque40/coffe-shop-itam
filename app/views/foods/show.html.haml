@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @food.name
+%p
+  %b Description:
+  = @food.description
+%p
+  %b Price:
+  = @food.price
+%p
+  %b Photo:
+  = @food.photo
+%p
+  %b User:
+  = @food.user
+
+= link_to 'Edit', edit_food_path(@food)
+\|
+= link_to 'Back', foods_path

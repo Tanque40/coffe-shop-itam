@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+###################
+# Add admin users #
+# ############### #
+
+admins = ['Lorena', 'Bruno', 'Limon']
+
+admins.each do |name|
+
+  User.create email: "#{name}@itamcoffe.mx", name: name, password: "#{name}itamcoffe", admin: true
+
+end
+
+puts 'Admin users has been created'
