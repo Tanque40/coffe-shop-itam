@@ -9,7 +9,7 @@
       = f.input :name
       = f.input :description
       = f.input :price
-      = f.input :photo, as: :hidden
+      = f.input :photo, :as :hidden
       %label{
         :for => "photoSelect"
       }
@@ -21,6 +21,17 @@
         :required => true
       }
       .foodPhotosContainer.container    
+        .row.d-none{:id => "foodRowImage"}
+          - 10.times do |count|
+            .foodPhoto.col-4
+              %a.foodPhotoLink{:id => count}
+                %img{
+                  :id => "img#{count}", 
+                  :src => "",
+                  :name => "",
+                }
 
+      
+      
     .form-actions
       = f.button :submit, class: "btn btn-primary"

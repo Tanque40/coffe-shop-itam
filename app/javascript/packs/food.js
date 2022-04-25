@@ -8,17 +8,17 @@ $(document).ready(function(){
 	
     $("#photoSelect").keyup(function() {
     
-	f.searchOptions(
-	    $("#photoSelect").val()
-	);
+	    f.searchOptions(
+	        $("#photoSelect").val()
+	    );
 
     });
     
-    $("a.foodPhotoLink").on("click", function(){
-        var photoID = $(this).attr('id');
-        console.log("ID: " + photoID); 
-        $("#food_photo").val( photoID );
-
+    $(".foodPhotoLink").click(function(){
+        console.log("yashoi");
+        f.selectImage(
+            $(this)
+        );
     });
 
 });
