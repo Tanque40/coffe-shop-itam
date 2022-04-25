@@ -13,7 +13,7 @@ export class FoodSearch{
     // show images on .photosContainer 
     searchOptions(foodName){
 	
-	const linkSearch = `${this.link}recipes/complexSearch?${this.API_KEY}&query=${foodName}`;
+	const linkSearch = `${this.link}recipes/complexSearch?${this.API_KEY}&query=${foodName}&number=9`;
 	console.log(linkSearch);
 	$.get(linkSearch, function(data){
 	    console.table(data);
@@ -22,9 +22,9 @@ export class FoodSearch{
 	    var countImage = 1;
 	    data.results.forEach(element => {
 	    
-	        message += `<div class="foodPhoto col">
-	                        <a href="javascript:void(0)" class="foodPhotoLink" id="${element.id}">
-	                            <img src="${element.image}" alt="foodName option ${countImage}" class="img-fluid img-thumbail">
+	        message += `<div class="foodPhoto col-4">
+	                        <a class="foodPhotoLink" id="${element.id}">
+	                            <img src="${element.image}" alt="foodName option ${countImage}" class="img-thumbail">
 	                        </a>    
                        </div>`;
 	        countImage++;

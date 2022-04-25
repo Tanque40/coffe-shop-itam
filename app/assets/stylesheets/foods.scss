@@ -3,6 +3,31 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .foodPhotosContainer{
-  display: flex;
+  
+}
 
+.foodPhoto {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    //margin: 5px 10px !important;
+
+    //height: 150px;
+
+    //background-color: white;
+    
+}
+
+.foodPhoto a:active{
+    float: left;
+    transform: scale(1.2);
+}
+
+.foodPhoto:hover{
+    //width:300px;
+    //height:300px;
+    float:left;
+    transform: scale(1.5);
 }

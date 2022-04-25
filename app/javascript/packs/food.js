@@ -6,11 +6,18 @@ const f = new FoodSearch();
 
 $(document).ready(function(){
 	
-    $("#food_photo").keyup(function() {
+    $("#photoSelect").keyup(function() {
     
 	f.searchOptions(
-	    $("#food_photo").val()
+	    $("#photoSelect").val()
 	);
+
+    });
+    
+    $("a.foodPhotoLink").on("click", function(){
+        var photoID = $(this).attr('id');
+        console.log("ID: " + photoID); 
+        $("#food_photo").val( photoID );
 
     });
 

@@ -9,7 +9,17 @@
       = f.input :name
       = f.input :description
       = f.input :price
-      = f.input :photo, label: 'Tap food name and select photo'
+      = f.input :photo, as: :hidden
+      %label{
+        :for => "photoSelect"
+      }
+        Tap food name and click on photo
+      %input{
+        :id => "photoSelect",
+        :name => "photoSelect",
+        :type=>"text", 
+        :required => true
+      }
       .foodPhotosContainer.container    
 
     .form-actions
