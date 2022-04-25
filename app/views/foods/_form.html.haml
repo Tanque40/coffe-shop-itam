@@ -1,15 +1,16 @@
 -# frozen_string_literal: true
-= javascript_pack_tag 'food'
-= simple_form_for(@food) do |f|
-  = f.error_notification
-  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+.container
+  = javascript_pack_tag 'food'
+  = simple_form_for(@food) do |f|
+    = f.error_notification
+    = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+    
+    .form-inputs
+      = f.input :name
+      = f.input :description
+      = f.input :price
+      = f.input :photo, label: 'Tap food name and select photo'
+      .foodPhotosContainer.container    
 
-  .form-inputs
-    = f.input :name
-    = f.input :description
-    = f.input :price
-    = f.input :photo
-   
-
-  .form-actions
-    = f.button :submit
+    .form-actions
+      = f.button :submit, class: "btn btn-primary"
