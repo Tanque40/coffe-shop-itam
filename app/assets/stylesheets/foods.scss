@@ -20,9 +20,15 @@
     
 }
 
-.foodPhoto a:active{
+.foodPhotoActive{
     float: left;
-    transform: scale(1.2);
+    transform: scale(1.1);
+}
+
+.foodPhotoActive img{
+    border-style: solid;
+    border-width: 3px;
+    border-color: blue;
 }
 
 .foodPhoto:hover{

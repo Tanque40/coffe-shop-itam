@@ -3,13 +3,12 @@
   = javascript_pack_tag 'food'
   = simple_form_for(@food) do |f|
     = f.error_notification
-    = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
-    
+    = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? 
     .form-inputs
       = f.input :name
       = f.input :description
       = f.input :price
-      = f.input :photo, :as :hidden
+      = f.input :photo, as: :hidden
       %label{
         :for => "photoSelect"
       }
@@ -18,7 +17,6 @@
         :id => "photoSelect",
         :name => "photoSelect",
         :type=>"text", 
-        :required => true
       }
       .foodPhotosContainer.container    
         .row.d-none{:id => "foodRowImage"}

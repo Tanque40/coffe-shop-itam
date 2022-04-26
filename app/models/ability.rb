@@ -30,5 +30,11 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
+    puts user.admin
+    if user.admin
+      puts "yesy"
+      can :manage, Food
+    end
+
   end
 end

@@ -8,6 +8,9 @@ export class FoodSearch{
 	    this.link = "https://api.spoonacular.com/";
         
         this.imgIDs = [];
+
+
+        this.selectedImage = false;
     }    
     
     // Start a search on spoonacular API and 
@@ -21,15 +24,9 @@ export class FoodSearch{
 	    $.get(linkSearch, function(data){
 	        console.table(data.results);
             $("#foodRowImage").removeClass('d-none');
-            var message = `<div class="row">`;
 	        var countImage = 0;
 	        data.results.forEach(element => {
 	    
-	           // message += `<div class="foodPhoto col-4">
-	            //                <a class="foodPhotoLink" id="${element.id}">
-	             //                   <img src="${element.image}" alt="foodName option ${countImage}" class="img-thumbail img-fluid">
-	             //               </a>    
-                //            </div>`;
                 $(`#img${countImage}`).attr("src", `${element.image}`);
                 $(`#img${countImage}`).attr("codigo", `${element.id}`);
                 console.log(this);
@@ -38,22 +35,30 @@ export class FoodSearch{
 	            countImage++;
 	    
 	        });
-            message += `</div>`
 
-    	 //   $('div.foodPhotosContainer').html(
-           //     message
-	        //);
     	});
-
-	    console.log(this);
 
     }
 
     selectImage(element){ 
-        console.log("yei");
-        var photoID = $(element).attr('id');
-        console.log("imgid: " + this.imgIDs[photoID]); 
-        $("#food_photo").val( this.imgIDs[photoID] );
+
+        var photoArrayPos = $(element).attr('id');
+        //console.log("imgid: " + this.imgIDs[photoArrayPos]); 
+        $("#food_photo").val( this.imgIDs[photoArrayPos] );
+        
+        if(this.selectedImage){
+            
+            $(this.selectedImage).removeClass("foodPhotoActive");
+            this.selectedImage = element;
+            $(this.selectedImage).addClass("foodPhotoActive"); 
+
+        } else {
+        
+            this.selectedImage = element;
+            $(this.selectedImage).addClass("foodPhotoActive");
+
+        }
+
     }
 
     

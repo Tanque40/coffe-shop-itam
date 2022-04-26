@@ -21,5 +21,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # Relation with food
-  has_many :food
+  has_many :foods
 end

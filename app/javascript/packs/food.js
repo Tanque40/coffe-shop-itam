@@ -15,10 +15,11 @@ $(document).ready(function(){
     });
     
     $(".foodPhotoLink").click(function(){
-        console.log("yashoi");
+
         f.selectImage(
             $(this)
         );
+
     });
 
 });
