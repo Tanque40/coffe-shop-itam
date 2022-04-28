@@ -73,6 +73,7 @@ class FoodsController < ApplicationController
         :description, 
         :price, 
         :photo,
+        :category_id
       )
     end
 end

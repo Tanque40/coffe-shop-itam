@@ -7,6 +7,7 @@
       %th Description
       %th Price
       %th Photo
+      %th Category
       %th User
       %th
       %th
@@ -19,6 +20,7 @@
         %td= food.description
         %td= food.price
         %td= food.photo
+        %td= food.category.name
         %td= food.user.name
         %td= link_to 'Show', food
         %td= link_to 'Edit', edit_food_path(food)
