@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2022_04_28_185359) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -23,10 +26,10 @@ ActiveRecord::Schema.define(version: 2022_04_28_185359) do
     t.string "description"
     t.float "price"
     t.string "photo"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "category_id"
+    t.bigint "category_id"
     t.index ["category_id"], name: "index_foods_on_category_id"
     t.index ["user_id"], name: "index_foods_on_user_id"
   end
