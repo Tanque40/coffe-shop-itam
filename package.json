@@ -16,5 +16,8 @@
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^4.8.1"
-  }
+  },
+  "engines": {
+    "node": "12.7.0",
+    "ruby": "2.7.1"
 }
