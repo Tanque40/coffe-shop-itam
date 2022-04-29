@@ -1,4 +1,4 @@
-%nav.navbar.navbar-light.bg-success.navbar-expand-lg
+%nav.navbar.bg-success.navbar-expand-lg
   .container-fluid
     %a.navbar-brand.text-white{href: '#'}
       CoffeShop ITAM
@@ -6,13 +6,11 @@
       %span.navbar-toggler-icon.text-white
     .collapse.navbar-collapse{id: "navbarSupportedContent"}
       %ul.navbar-nav.ms-auto
-        - if controller_name == "Foods"
-          %li.nav-item
-            = link_to "categories", categories_url, method: :get, class: "nav-link text-white"
-        - if controller_name == "categories"
-          %li.nav-item
-            = link_to "foods", foods_url, method: :get, class: "nav-link text-white"
+        %li.nav-item
+          = link_to "Categories", categories_url, method: :get, class: "nav-link text-white"
+        %li.nav-item
+          = link_to "Foods", foods_url, method: :get, class: "nav-link text-white"
         - if user_signed_in?
           %li.nav-item
-            = link_to "sign out", destroy_user_session_path, method: :delete, class: "nav-link text-white"
+            = link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link text-white"
  

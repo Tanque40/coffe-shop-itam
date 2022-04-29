@@ -1,31 +1,36 @@
-%h1 Listing foods
+.card
+  .card-body
+    .row
+      .col
+        %h2.card-title 
+          Listing foods
+      .col
+        = link_to 'New Food', new_food_path, class: "btn btn-primary text-white"
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Description
-      %th Price
-      %th Photo
-      %th Category
-      %th User
-      %th
-      %th
-      %th
+    %table.table
+      %thead
+        %tr
+          %th.col Name
+          %th.col Description
+          %th.col Price
+          %th.col Photo
+          %th.col Category
+          %th.col User
+          %th.col
+          %th.col
+          %th.col
 
-  %tbody
-    - @foods.each do |food|
-      %tr
-        %td= food.name
-        %td= food.description
-        %td= food.price
-        %td= food.photo
-        %td= food.category.name
-        %td= food.user.name
-        %td= link_to 'Show', food
-        %td= link_to 'Edit', edit_food_path(food)
-        %td= link_to 'Destroy', food, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %tbody
+        - @foods.each do |food|
+          %tr
+            %td{scope:"row"}= food.name
+            %td= food.description
+            %td= food.price
+            %td= food.photo
+            %td= food.category.name
+            %td= food.user.name
+            %td= link_to 'Show', food
+            %td= link_to 'Edit', edit_food_path(food)
+            %td= link_to 'Destroy', food, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
 
-= link_to 'New Food', new_food_path

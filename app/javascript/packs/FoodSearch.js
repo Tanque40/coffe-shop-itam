@@ -7,7 +7,7 @@ export class FoodSearch{
 	    //API Link
 	    this.link = "https://api.spoonacular.com/";
         
-        this.imgIDs = [];
+        this.imgIDs = [0, 1, 2, 3, 4, 5, 6, 7, 8 ];
 
 
         this.selectedImage = false;
@@ -20,11 +20,12 @@ export class FoodSearch{
 	    const linkSearch = `${this.link}recipes/complexSearch?${this.API_KEY}&query=${foodName}&number=9`;
 	    console.log(linkSearch);
 	    console.log(this);
-        var obj = [this]
+        var obj = [this];
+        var countImage = 0;
 	    $.get(linkSearch, function(data){
 	        console.table(data.results);
             $("#foodRowImage").removeClass('d-none');
-	        var countImage = 0;
+	        countImage = 0;
 	        data.results.forEach(element => {
 	    
                 $(`#img${countImage}`).attr("src", `${element.image}`);
