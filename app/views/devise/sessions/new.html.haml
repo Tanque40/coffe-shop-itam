@@ -1,0 +1,37 @@
+
+
+= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .container
+    .card
+      .card-body
+        %h2.card-title
+          Log In
+
+        .form-inputs
+          .container
+            .row
+              .col-12
+                = f.input :email,
+                  required: false,
+                  autofocus: true,
+                  input_html: { autocomplete: "email",
+                    class: "form-control form-control-sm" }
+            .row
+              .col-12
+                = f.input :password,
+                  required: false,
+                  input_html: { autocomplete: "current-password",
+                    class: "form-control form-control-sm" }
+            .row
+              .col-12
+                = f.input :remember_me, 
+                  input_html: { class: "form-check-input form-check-input-bg-success" },
+                  as: :boolean if devise_mapping.rememberable?
+
+        .form-actions.container
+          .row.justify-content-center
+            .col.text-center
+              = f.button :submit, "Log in", class: "btn btn-success"
+          .row.justify-content-center
+            .col.text-center
+              = render "devise/shared/links" 

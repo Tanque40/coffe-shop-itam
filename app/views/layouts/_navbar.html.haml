@@ -1,0 +1,18 @@
+%nav.navbar.navbar-light.bg-success.navbar-expand-lg
+  .container-fluid
+    %a.navbar-brand.text-white{href: '#'}
+      CoffeShop ITAM
+    %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarSupportedContent", "data-bs-toggle" => "collapse", :type => "button" }
+      %span.navbar-toggler-icon.text-white
+    .collapse.navbar-collapse{id: "navbarSupportedContent"}
+      %ul.navbar-nav.ms-auto
+        - if controller_name == "Foods"
+          %li.nav-item
+            = link_to "categories", categories_url, method: :get, class: "nav-link text-white"
+        - if controller_name == "categories"
+          %li.nav-item
+            = link_to "foods", foods_url, method: :get, class: "nav-link text-white"
+        - if user_signed_in?
+          %li.nav-item
+            = link_to "sign out", destroy_user_session_path, method: :delete, class: "nav-link text-white"
+ 
