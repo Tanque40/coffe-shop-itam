@@ -18,7 +18,7 @@
     "webpack-dev-server": "^4.8.1"
   },
   "engines": {
-    "node": "12.7.0",
+    "node": "12.17.0",
     "ruby": "2.7.1"
   }
 }
