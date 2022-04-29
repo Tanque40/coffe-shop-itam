@@ -2,27 +2,8 @@
 
 Application for the Coffe Shop of ITAM. Actually develop for a project class.
 
-## Just a note for the future
-This README would normally document whatever steps are necessary to get the
-application up and running.
+You can see online version of [Coffe Shop ITAM](https://coffeshopitam.herokuapp.com). You can use the Test user to see project as admin.
+- User: Test@itamcoffe.mx
+- Password: Testitamcoffe
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
+Currently only login and sign out, food and category registration, watch, edit and delete works

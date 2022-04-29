@@ -10,7 +10,7 @@
 # Add admin users #
 # ############### #
 
-admins = ['Lorena', 'Bruno', 'Limon']
+admins = ['Lorena', 'Bruno', 'Limon', 'Test']
 
 admins.each do |name|
 
