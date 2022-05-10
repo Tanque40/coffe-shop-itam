@@ -1,13 +1,13 @@
 export class FoodSearch{
     
-    constructor(){
+	constructor(){
 	
 	    // Key for spoonacular API
 	    this.API_KEY = "apiKey=91a321fa14be4eee964e136880ae081c";
 	    //API Link
 	    this.link = "https://api.spoonacular.com/";
         
-        this.imgIDs = [0, 1, 2, 3, 4, 5, 6, 7, 8 ];
+        this.imgIDs = [];
 
 
         this.selectedImage = false;
@@ -26,12 +26,14 @@ export class FoodSearch{
 	        console.table(data.results);
             $("#foodRowImage").removeClass('d-none');
 	        countImage = 0;
+        	obj[0].imgIDs = [];
 	        data.results.forEach(element => {
 	    
                 $(`#img${countImage}`).attr("src", `${element.image}`);
                 $(`#img${countImage}`).attr("codigo", `${element.id}`);
                 console.log(this);
                 obj[0].imgIDs.push( element.id );
+				console.log(obj[0].imgIDs)
 
 	            countImage++;
 	    
@@ -42,7 +44,8 @@ export class FoodSearch{
     }
 
     selectImage(element){ 
-
+		
+		console.log(this.imgIDs)
         var photoArrayPos = $(element).attr('id');
         //console.log("imgid: " + this.imgIDs[photoArrayPos]); 
         $("#food_photo").val( this.imgIDs[photoArrayPos] );

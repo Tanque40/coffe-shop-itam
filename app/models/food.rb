@@ -16,5 +16,9 @@ class Food < ApplicationRecord
   belongs_to :category
 
   validates :name, :description, :photo, :price, presence: true
-  
+
+  def feed
+    Food.all
+  end
+
 end

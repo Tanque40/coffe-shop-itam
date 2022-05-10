@@ -41,6 +41,7 @@ gem 'rails-i18n'
 gem 'cocoon'
 gem 'cancancan'
 gem 'font-awesome-sass', '~> 5.12.0'
+gem 'will_paginate', '3.3.0'
 
 ###########################
 

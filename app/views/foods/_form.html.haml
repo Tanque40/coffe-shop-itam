@@ -21,9 +21,9 @@
       }
       .foodPhotosContainer.container    
         .row.d-none{:id => "foodRowImage"}
-          - 10.times do |count|
+          - 9.times do |count|
             .foodPhoto.col-4
-              %a.foodPhotoLink{:id => count}
+              %a.foodPhotoLink{:id => "#{count}"}
                 %img{
                   :id => "img#{count}", 
                   :src => "",
