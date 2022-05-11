@@ -32,7 +32,7 @@ class User < ApplicationRecord
         id: id,
         exp: 1.hours.from_now.to_i
       },
-      Rails.application.screts.scret_key_base
+      Rails.application.secrets.secret_key_base
     )
   end
 

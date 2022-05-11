@@ -2,10 +2,12 @@ module Api
   module V1
     class SessionsController < Devise::SessionsController
   
+      skip_before_action :verify_authenticity_token
       def create
-        user = User.find_by_email(sign_in_params[:email])
+        user = User.find_by email: params[:email].downcase
+        puts user
 
-        if user && user.validpassword?(sign_in_params[:password])
+        if user && user.valid_password?(params[:password])
           @current_user = user
         else
           render json: {
