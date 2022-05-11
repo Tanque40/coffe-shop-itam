@@ -1,21 +1,28 @@
-class UsersController < ApiController
-  before_action :authenticate_user!
+module Api
+  module V1
+    class UsersController < ApiController
+      before_action :authenticate_user!
 
-  def show
-  end
+      def show
+      end
 
-  def update
-    if current_user.update_attributes(user_params)
-      render :show
-    else
-      render json: { erros: current_user.errors }, status: :unprocessable_entity
+      def update
+        if current_user.update_attributes(user_params)
+          render :show
+        else
+          render json: { erros: current_user.errors }, status: :unprocessable_entity
+        end
+      end
+
+      private
+
+      def user_params
+        params.require(:user).permit(:name, :last_name, :email, :password)
+      end
+
     end
+
   end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:name, :last_name, :email, :password)
-  end
-
 end
+
+::Api::V1::UsersController
