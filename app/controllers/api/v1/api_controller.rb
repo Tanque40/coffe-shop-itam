@@ -1,31 +1,42 @@
 module Api
   module V1
     class ApiController < ActionController::Base
-      before_action :check_basic_auth
+      before_action :authenticate_user
       skip_before_action :verify_authenticity_token
 
+      
       private
+      
+      def authenticate_user
+        if request.headers['Authorization'].present?
+          authenticate_or_request_with_http_token do |token|
 
-      def check_basic_auth
-        unless request.authorization.present?
-          head :unauthorized
-          return
-        end
+            begin
+              jwt_payload = JWT.decode(token, Rails.application.secrets.secret_key_base).first
 
-        authenticate_with_http_basic do |email, password|
-          user = User.find_by(email: email.downcase)
+              @current_user_id = jwt_payload['id']
+            rescue JWT::ExpiredSgnature, JWT::VerificationError, JWT::DecodeError
+              head :unauthorized
+            end
 
-          if user && sign_in(email, password)
-            @current_user = user
-          else
-            head :unauthorized
           end
+
         end
+
+      end
+
+      def authenticate_user!(options = {})
+        head :unauthorized unless signed_in?
       end
 
       def current_user
-        @current_user
+        @current_user ||= super || User.find(@current_user_id)
       end
+
+      def signed_in?
+        @current_user_id.present?
+      end
+
     end
   end
 end

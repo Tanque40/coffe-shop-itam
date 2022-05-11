@@ -2,7 +2,7 @@
 #
 # Table name: users
 #
-#  id                     :integer          not null, primary key
+#  id                     :bigint           not null, primary key
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
@@ -25,4 +25,16 @@ class User < ApplicationRecord
   def feed
     Food.all
   end
+
+  def generate_jwt
+    JWT.encode(
+      {
+        id: id,
+        exp: 1.hours.from_now.to_i
+      },
+      Rails.application.screts.scret_key_base
+    )
+  end
+
+
 end
