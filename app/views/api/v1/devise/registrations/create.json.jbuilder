@@ -1,3 +1,1 @@
-json.user do |json|
-  json.partial 'users/user', user: current_user
-end
+json.partial! 'api/v1/users/user'
