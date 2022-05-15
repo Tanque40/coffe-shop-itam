@@ -20,6 +20,10 @@ Rails.application.routes.draw do
 
       # User routes
       resources :user, only: [:show, :update]
+      
+      # Order routes
+      resources :orders, only: [:index, :show, :create] 
+
     end
   end
 

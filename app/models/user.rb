@@ -21,6 +21,9 @@ class User < ApplicationRecord
 
   # Relation with food
   has_many :foods
+  
+  # Ralition with orders
+  has_many :orders
 
   def feed
     Food.all

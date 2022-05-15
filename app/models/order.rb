@@ -14,10 +14,8 @@ class Order < ApplicationRecord
   belongs_to :food
   belongs_to :user
 
-  # To asign many things
-  has_many :foods
-  has_many :users
-
   # Validations
+  validates :quantity, :food_id, :user_id, presence: true
+
 
 end
