@@ -9,14 +9,18 @@ module Api
       
       def authenticate_user
         if request.headers['Authorization'].present?
-          authenticate_or_request_with_http_token do |token|
+          authenticate_or_request_with_http_token do |token, options|
 
             begin
-              jwt_payload = JWT.decode(token, Rails.application.secrets.secret_key_base).first
+              jwt_payload = JWT.decode(token, Rails.application.secrets.secret_key_base)
 
-              @current_user_id = jwt_payload['id']
-            rescue JWT::ExpiredSgnature, JWT::VerificationError, JWT::DecodeError
-              head :unauthorized
+              @current_user_id = jwt_payload[0]['id']
+            rescue JWT::ExpiredSignature              
+              render template: "api/v1/layouts/errors", locals: { error: 'ExpiredSignature' }
+            rescue JWT::VerificationError
+              render template: "api/v1/layouts/errors", locals: { error: 'VerificationError' }
+            rescue JWT::DecodeError
+              render template: "api/v1/layouts/errors", locals: { error: 'DecodeError' }
             end
 
           end
